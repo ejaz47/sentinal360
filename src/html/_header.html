@@ -1,3 +1,54 @@
-<header>HEADER START</header>
-<img src="assets/img/cat.jpg" width="100" alt="">
-<header>HEADER END</header>
+<nav class="navbar is-fixed-top p-3" style="background: transparent; backdrop-filter: blur(50px);" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item full-height" href="./index.html">
+            <img src="./img/Sentinel360-Logo.png" width="112">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end">
+            <a href="#" class="navbar-item">Home</a>
+            <a href="#" class="navbar-item">Services</a>
+            <a href="#" class="navbar-item">Industries</a>
+            <a href="#" class="navbar-item">Resources</a>
+            <a href="#" class="navbar-item">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<style lang="scss">
+    .full-height img {
+        max-height: 100%;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // Get all "navbar-burger" elements
+        const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+        // Add a click event on each of them
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+
+                // Get the target from the "data-target" attribute
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+
+            });
+        });
+
+    });
+
+</script>

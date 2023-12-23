@@ -1,19 +1,137 @@
 <html lang="ru">
+
 <head>
     <title>Boilerplate</title>
 </head>
-<body>
-<include>_header.html</include>
-<div class="grid-row">
-    <div class="grid-col--5">
-        <div class="cat">
-            <img src="assets/img/cat.jpg" width="100" alt="">
-            <div class="cat__photo"></div>
-            <div class="cat__title">Cat</div>
+
+<body class="has-navbar-fixed-top">
+    <include>_header.html</include>
+    <div class="columns banner">
+        <div class="column"></div>
+        <div class="column"></div>
+        <div class="column is-two-thirds is-flex is-align-items-center m-4">
+            <div class="banner-text">
+                <p class="title is-size-1 has-text-primary">
+                    Unleash the Full Potential of Security with Sentinel 360
+                </p>
+                <div>
+                    <p class="is-size-6 has-text-black-bis m-0 member-of">
+                        Member of Microsoft Intelligent Security Association
+                    </p>
+                    <img src="./img/Microsoft-logo.png" alt="Microsoft logo">
+                </div>
+            </div>
         </div>
     </div>
-</div>
-<a href="products.html">products.html</a>
-<include>_footer.html</include>
+    <div class="columns m-4 margin-top-24">
+        <div class="column p-6">
+            <p class="title is-size-1 has-text-primary">
+                Microsoft-specialized cybersecurity service provider
+            </p>
+            <p class="is-size-4 has-text-primary-dark mb-5">
+                At Sentinel360, we are proud to be a Microsoft-specialized cybersecurity service provider, certified as both a Microsoft Intelligent Security Association
+            </p>
+            <a class="button is-primary" href="#">Secure now</a>
+        </div>
+        <div class="column text-center" >
+            <include>_endpoint-svg.html</include>
+        </div>
+    </div>
+    <div class="columns m-4  margin-top-24">
+        <div class="column text-center">
+            <include>_service-247-svg.html</include>
+        </div>
+        <div class="column p-6">
+            <p class="title is-size-1 has-text-primary">
+                Microsoft-specialized cybersecurity service provider
+            </p>
+            <p class="is-size-4 has-text-primary-dark mb-5">
+                At Sentinel360, we are proud to be a Microsoft-specialized cybersecurity service provider, certified as both a Microsoft Intelligent Security Association
+            </p>
+            <a class="button is-primary" href="#">Secure now</a>
+        </div>
+    </div>
+    <div class="columns m-4 margin-top-24">
+        <div class="column p-6">
+            <p class="title is-size-1 has-text-primary">
+                Microsoft-specialized cybersecurity service provider
+            </p>
+            <p class="is-size-4 has-text-primary-dark mb-5">
+                At Sentinel360, we are proud to be a Microsoft-specialized cybersecurity service provider, certified as both a Microsoft Intelligent Security Association
+            </p>
+            <a class="button is-primary" href="#">Secure now</a>
+        </div>
+        <div class="column text-center">
+            <include>_software-integration-svg.html</include>
+        </div>
+    </div>
+    <include>_carousel-offer.html</include>
 </body>
+
+<style lang="scss">
+    .banner {
+        height: 550px;
+        background-image: url('./img/banner1.png');
+        background-size: cover;
+        .banner-text {
+            width: 100%;
+        }
+        .member-of {
+            max-width: 145px;
+        }
+    }
+</style>
+
+<script>
+    // Get all path elements within the SVG
+    // const pathElements = document.querySelectorAll("svg path");
+    // pathElements.forEach((path, index) => {
+    //     anime({
+    //         targets: path,
+    //         scale: [1, 1.005, 1],
+    //         duration: 900, // Adjust the duration based on the index
+    //         easing: "linear",
+    //         loop: true,
+    //         delay: Math.random() * 100 // Adjust the delay based on the index
+    //     });
+    // });
+
+    // // Get all svg elements
+    // const svgElements = document.querySelectorAll("svg");
+    // svgElements.forEach((svg, index) => {
+    //     anime({
+    //         targets: svg,
+    //         scale: [1, 1.05, 1],
+    //         duration: 3000, // Adjust the duration based on the index
+    //         easing: "linear",
+    //         loop: true,
+    //         delay: Math.random() * 100 // Adjust the delay based on the index
+    //     });
+    // });
+
+    // Initialize Slick Carousel
+    $(document).ready(function(){
+        const slider = tns({
+            container: '.carousel',
+            items: 1,
+            slideBy: 'page',
+            autoplay: false,
+            autoHeight: true,
+            mouseDrag: true,
+            controlsContainer: "#customize-controls",
+            navContainer: "#customize-thumbnails",
+        });
+
+        // Enable navigation buttons to work
+        document.querySelector('.carousel-nav-prev').onclick = function () {
+            slider.goTo('prev');
+        };
+
+        document.querySelector('.carousel-nav-next').onclick = function () {
+            slider.goTo('next');
+        };
+    });
+
+</script>
+
 </html>

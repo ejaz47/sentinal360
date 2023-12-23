@@ -1,17 +1,142 @@
-@import "variables/media";
+// @import "variables/media";
 
-@import "mixin/media";
+// @import "mixin/media";
 
-@import "util/grid";
+// @import "util/grid";
 
-@import "lib/normalize";
+// @import "lib/normalize";
 
-@import "modifier/margin";
+// @import "modifier/margin";
 
-@import 'base/base';
-@import 'base/fonts';
+// @import 'base/base';
+// @import 'base/fonts';
 
-@import 'module/cat';
+// @import 'module/cat';
+
+$fa-font-path: './assets/fonts';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+
+// Set your brand colors
+$purple: #8A4D76;
+$pink: #FA7C91;
+$brown: #757763;
+$beige-light: #D0D1CD;
+$beige-lighter: #EFF0EB;
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+// $grey-dark: $brown;
+// $grey-light: $beige-light;
+$primary: #2687CE;
+$primary-dark: #015DA8;
+$primary-bg: #D2E9FA;
+$link: $primary-dark;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+// $body-background-color: $beige-lighter;
+$control-border-width: 2px;
+$input-border-color: transparent;
+$input-shadow: none;
+
+@import "~bulma/bulma";
+@import "~tiny-slider/dist/tiny-slider";
+
+@font-face {
+    font-family: 'jost';
+    font-style: normal;
+    font-weight: 400;
+    font-display: $fa-font-display;
+    src: url('./assets/fonts/Jost-VariableFont_wght.ttf') format('truetype');
+}
+
+body {
+    color: black;
+    * {
+        font-family: 'jost', sans-serif;
+    }
+} 
+
+.primary-bg {
+    background-color: $primary-bg;
+}
+
+.has-text-primary-dark {
+    color: $primary-dark;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.margin-top-24 {
+    margin-top:  60px !important;
+}
 
 
+.offer-item {
+    p.ml-5 {
+        margin-left: 1.6rem !important;
+        margin-top: 5px;
+    }
+}
 
+.carousel {
+    position: relative;
+    
+    .tns-item {
+        // height: 300px; // Adjust the height as needed
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: inherit;
+        width: 100%;
+        padding: 50px;
+        padding-bottom: 0px;
+        background: #FFFFFF;
+    }
+}
+
+.tns-outer {
+    box-shadow: 0px 4px 30px 10px rgba(18, 151, 248, 0.15);
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+
+    &-next {
+        right: 10px;
+    }
+
+    &-prev {
+        left: 10px;
+    }
+}
+
+#customize-thumbnails {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+    span {
+        font-size: 0.8rem;
+        margin: auto 10px;
+        color: $primary-bg;
+        &.tns-nav-active {
+            color: $primary;
+        }
+    }
+}
+
+.carousel-container {
+    background-image: url(./img/Intersect.png);
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: contain;
+}

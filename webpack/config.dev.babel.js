@@ -58,6 +58,9 @@ module.exports = {
         before: function (app) {
             app.use('/assets', express.static('./src/assets'));
             app.use('/img', express.static('./src/assets/img'));
+        },
+        watchOptions: {
+            ignored: /node_modules/
         }
     },
     plugins: getPlugins(),
