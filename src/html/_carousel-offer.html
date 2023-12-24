@@ -7,123 +7,43 @@
     </div>
     <div class="container mt-5" style="max-width: 1200px;">
         <div class="carousel">
+            {% for offer in offers %}
             <div>
-                <p class="is-size-4 has-text-primary">$11K Value</p>
+                <p class="is-size-4 has-text-primary">{{ offer.name }}</p>
                 <p class="is-size-5 has-text-primary has-text-weight-bold">Protection Engagement</p>
                 <p class="is-size-6 has-text-primary">Elevate your organization's security with expert guidance, tailored recommendations, and proactive threat detection, powered by Microsoft Security tools.</p>
                 <div class="mt-6">
-                    <div class="columns">
-                        <div class="column offer-item">
+                    <div class="columns is-multiline">
+                        {% for item in offer.details %}
+                        <div class="column is-4 offer-item">
                             <div class="icon-text">
                                 <span class="icon has-text-info">
                                     <img src="./img/correct.svg" alt="">
                                 </span>
-                                <span class="has-text-weight-bold">Phishing Attack Awareness</span>
+                                <span class="has-text-weight-bold"> {{ item.title }}</span>
                             </div>
                             <p class="block ml-5">
-                                Gauge your organization's exposure to phishing attacks.
+                                {{ item.text }}
                             </p>
                         </div>
-                        <div class="column offer-item">
-                            <div class="icon-text">
-                                <span class="icon has-text-info">
-                                    <img src="./img/correct.svg" alt="">
-                                </span>
-                                <span class="has-text-weight-bold">Phishing Attack Awareness</span>
-                            </div>
-                            <p class="block ml-5">
-                                Gauge your organization's exposure to phishing attacks.
-                            </p>
-                        </div>
-                        <div class="column offer-item">
-                            <div class="icon-text">
-                                <span class="icon has-text-info">
-                                    <img src="./img/correct.svg" alt="">
-                                </span>
-                                <span class="has-text-weight-bold">Phishing Attack Awareness</span>
-                            </div>
-                            <p class="block ml-5">
-                                Gauge your organization's exposure to phishing attacks.
-                            </p>
-                        </div>
+                        {% endfor %}
                     </div>
-                    <div class="columns">
-                        <div class="column offer-item">
-                            <div class="icon-text">
-                                <span class="icon has-text-info">
-                                    <img src="./img/correct.svg" alt="">
-                                </span>
-                                <span class="has-text-weight-bold">Phishing Attack Awareness</span>
-                            </div>
-                            <p class="block ml-5">
-                                Gauge your organization's exposure to phishing attacks.
-                            </p>
-                        </div>
-                        <div class="column offer-item">
-                            <div class="icon-text">
-                                <span class="icon has-text-info">
-                                    <img src="./img/correct.svg" alt="">
-                                </span>
-                                <span class="has-text-weight-bold">Phishing Attack Awareness</span>
-                            </div>
-                            <p class="block ml-5">
-                                Gauge your organization's exposure to phishing attacks.
-                            </p>
-                        </div>
-                        <div class="column offer-item">
-                            <div class="icon-text">
-                                <span class="icon has-text-info">
-                                    <img src="./img/correct.svg" alt="">
-                                </span>
-                                <span class="has-text-weight-bold">Phishing Attack Awareness</span>
-                            </div>
-                            <p class="block ml-5">
-                                Gauge your organization's exposure to phishing attacks.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="columns">
-                        <div class="column offer-item">
-                            <div class="icon-text">
-                                <span class="icon has-text-info">
-                                    <img src="./img/correct.svg" alt="">
-                                </span>
-                                <span class="has-text-weight-bold">Phishing Attack Awareness</span>
-                            </div>
-                            <p class="block ml-5">
-                                Gauge your organization's exposure to phishing attacks.
-                            </p>
-                        </div>
-                        <div class="column offer-item">
-                            <div class="icon-text">
-                                <span class="icon has-text-info">
-                                    <img src="./img/correct.svg" alt="">
-                                </span>
-                                <span class="has-text-weight-bold">Phishing Attack Awareness</span>
-                            </div>
-                            <p class="block ml-5">
-                                Gauge your organization's exposure to phishing attacks.
-                            </p>
-                        </div>
-                        <div class="column offer-item">
-                        </div>
-                    </div>
+
                 </div>
                 <a href="#" class="button is-primary mt-6">Buy now</a>
             </div>
-            <div>Your Content 2</div>
-            <div>Your Content 3</div>
-            <!-- Add more slides as needed -->
+            {% endfor %}
         </div>
     
         <div id="customize-controls">
+            {% for offer in offers %}
             <div></div>
-            <div></div>
+            {% endfor %}
         </div>
         <div id="customize-thumbnails">
+            {% for offer in offers %}
             <span class="tns-nav"><i class="fa-solid fa-circle"></i></span>
-            <span class="tns-nav"><i class="fa-solid fa-circle"></i></span>
-            <span class="tns-nav"><i class="fa-solid fa-circle"></i></span>
+            {% endfor %}
         </div>
         <!-- Right navigation button -->
         <!-- <div class="carousel-nav carousel-nav-next">
