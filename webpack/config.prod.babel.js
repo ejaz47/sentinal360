@@ -23,7 +23,7 @@ const getEntries = () => {
 
 const getPlugins = () => {
     const plugins = [
-        new CleanWebpackPlugin('dist', {
+        new CleanWebpackPlugin(['dist', 'docs'], {
             root: __dirname + '/../'
         }),
         new CopyWebpackPlugin([
@@ -32,10 +32,10 @@ const getPlugins = () => {
                 to: __dirname + '/../dist/assets/'
             }
         ]),
-        new ExtractTextPlugin({
-            filename: './assets/css/styles.css',
-            allChunks: true
-        }),
+        // new ExtractTextPlugin({
+        //     filename: './assets/css/styles.css',
+        //     allChunks: true
+        // }),
         new WebpackShellPlugin({ // Run a script after the build
             onBuildEnd: ['node scripts/copy-dist-to-docs.js']
         })
@@ -80,30 +80,32 @@ module.exports = {
             {
                 test: /\.(css|scss)$/,
                 exclude: /node_modules/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: "css-loader",
-                            options: {
-
-                                url: false
-                            }
-                        }, {
-                            loader: "postcss-loader",
-                            options: {
-                                ident: 'postcss',
-                                plugins: () => [
-                                    require('autoprefixer')({
-                                        browsers: ['ie >= 8', 'last 4 version']
-                                    }),
-                                    require('cssnano')()
-                                ]
-                            }
-                        },
-                        'sass-loader'
-                    ]
-                })
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                            url: false
+                        }
+                    }, {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            sourceMap: true,
+                            plugins: () => [
+                                require('autoprefixer')({
+                                    browsers: ['ie >= 8', 'last 4 version']
+                                }),
+                            ]
+                        }
+                    }, {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                ],
             },
         ],
     },
