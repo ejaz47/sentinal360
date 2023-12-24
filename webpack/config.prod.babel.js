@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const WebpackShellPlugin = require('webpack-shell-plugin');
 
 const htmlFileNames = fs.readdirSync('./src/html/');
 
@@ -34,6 +35,9 @@ const getPlugins = () => {
         new ExtractTextPlugin({
             filename: './assets/css/styles.css',
             allChunks: true
+        }),
+        new WebpackShellPlugin({ // Run a script after the build
+            onBuildEnd: ['node scripts/copy-dist-to-docs.js']
         })
     ];
     htmlFileNames.forEach(filename => {
