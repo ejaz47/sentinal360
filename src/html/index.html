@@ -4,9 +4,9 @@
     <title>Boilerplate</title>
 </head>
 
-<body class="has-navbar-fixed-top">
+<body class="has-navbar-fixed-top" style="scroll-behavior: smooth;">
     <include>_header.html</include>
-    <div class="columns banner">
+    <div class="columns banner" id="home">
         <div class="column"></div>
         <div class="column"></div>
         <div class="column is-two-thirds is-flex is-align-items-center m-4">
@@ -23,49 +23,52 @@
             </div>
         </div>
     </div>
-    <div class="columns m-4 margin-top-24">
-        <div class="column p-6">
-            <p class="title is-size-1 has-text-primary">
-                Microsoft-specialized cybersecurity service provider
-            </p>
-            <p class="is-size-4 has-text-primary-dark mb-5">
-                At Sentinel360, we are proud to be a Microsoft-specialized cybersecurity service provider, certified as both a Microsoft Intelligent Security Association
-            </p>
-            <a class="button is-primary" href="#">Secure now</a>
+    <div id="services">
+        <div class="columns m-4 margin-top-24">
+            <div class="column p-6">
+                <p class="title is-size-1 has-text-primary">
+                    Microsoft-specialized cybersecurity service provider
+                </p>
+                <p class="is-size-4 has-text-primary-dark mb-5">
+                    At Sentinel360, we are proud to be a Microsoft-specialized cybersecurity service provider, certified as both a Microsoft Intelligent Security Association
+                </p>
+                <a class="button is-primary" href="#">Secure now</a>
+            </div>
+            <div class="column text-center" >
+                <include>_endpoint-svg.html</include>
+            </div>
         </div>
-        <div class="column text-center" >
-            <include>_endpoint-svg.html</include>
+        <div class="columns m-4  margin-top-24">
+            <div class="column text-center">
+                <include>_service-247-svg.html</include>
+            </div>
+            <div class="column p-6">
+                <p class="title is-size-1 has-text-primary">
+                    Microsoft-specialized cybersecurity service provider
+                </p>
+                <p class="is-size-4 has-text-primary-dark mb-5">
+                    At Sentinel360, we are proud to be a Microsoft-specialized cybersecurity service provider, certified as both a Microsoft Intelligent Security Association
+                </p>
+                <a class="button is-primary" href="#">Secure now</a>
+            </div>
         </div>
-    </div>
-    <div class="columns m-4  margin-top-24">
-        <div class="column text-center">
-            <include>_service-247-svg.html</include>
-        </div>
-        <div class="column p-6">
-            <p class="title is-size-1 has-text-primary">
-                Microsoft-specialized cybersecurity service provider
-            </p>
-            <p class="is-size-4 has-text-primary-dark mb-5">
-                At Sentinel360, we are proud to be a Microsoft-specialized cybersecurity service provider, certified as both a Microsoft Intelligent Security Association
-            </p>
-            <a class="button is-primary" href="#">Secure now</a>
-        </div>
-    </div>
-    <div class="columns m-4 margin-top-24">
-        <div class="column p-6">
-            <p class="title is-size-1 has-text-primary">
-                Microsoft-specialized cybersecurity service provider
-            </p>
-            <p class="is-size-4 has-text-primary-dark mb-5">
-                At Sentinel360, we are proud to be a Microsoft-specialized cybersecurity service provider, certified as both a Microsoft Intelligent Security Association
-            </p>
-            <a class="button is-primary" href="#">Secure now</a>
-        </div>
-        <div class="column text-center">
-            <include>_software-integration-svg.html</include>
+        <div class="columns m-4 margin-top-24">
+            <div class="column p-6">
+                <p class="title is-size-1 has-text-primary">
+                    Microsoft-specialized cybersecurity service provider
+                </p>
+                <p class="is-size-4 has-text-primary-dark mb-5">
+                    At Sentinel360, we are proud to be a Microsoft-specialized cybersecurity service provider, certified as both a Microsoft Intelligent Security Association
+                </p>
+                <a class="button is-primary" href="#">Secure now</a>
+            </div>
+            <div class="column text-center">
+                <include>_software-integration-svg.html</include>
+            </div>
         </div>
     </div>
     <include>_carousel-offer.html</include>
+    <include>_form.html</include>
 </body>
 
 <style lang="scss">
@@ -123,13 +126,26 @@
         });
 
         // Enable navigation buttons to work
-        document.querySelector('.carousel-nav-prev').onclick = function () {
-            slider.goTo('prev');
-        };
+        // document.querySelector('.carousel-nav-prev').onclick = function () {
+        //     slider.goTo('prev');
+        // };
 
-        document.querySelector('.carousel-nav-next').onclick = function () {
-            slider.goTo('next');
-        };
+        // document.querySelector('.carousel-nav-next').onclick = function () {
+        //     slider.goTo('next');
+        // };
+
+        $('a[href*="#"]:not([href="#"]):not([href="#show"]):not([href="#hide"])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top - 100
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
     });
 
 </script>

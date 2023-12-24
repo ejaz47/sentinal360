@@ -135,8 +135,25 @@ body {
 }
 
 .carousel-container {
-    background-image: url(./img/Intersect.png);
+    background-image: url(./assets/img/Intersect.png);
     background-repeat: no-repeat;
     background-position-x: right;
     background-size: contain;
+}
+
+.input {
+    background-color: #F8FCFF;
+}
+
+
+.box {
+    background: white;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    color: white;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px, 20px 20px $primary;
+    transition: all .4s ease;
+}
+.box:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px, 10px 10px $primary;
 }
