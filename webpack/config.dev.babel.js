@@ -55,10 +55,10 @@ module.exports = {
         inline: true,
         quiet: true,
         historyApiFallback: true,
-        // before: function (app) {
-        //     app.use('/assets', express.static('./src/assets'));
-        //     app.use('/img', express.static('./src/assets/img'));
-        // },
+        before: function (app) {
+            app.use('/assets', express.static('./src/assets'));
+            app.use('/img', express.static('./src/assets/img'));
+        },
         watchOptions: {
             ignored: /node_modules/
         }

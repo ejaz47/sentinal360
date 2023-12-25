@@ -157,3 +157,14 @@ body {
     border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px, 10px 10px $primary;
 }
+
+
+// Responsiveness
+
+@include mobile {
+    // Styles applied
+    // below $tablet
+    .is-hidden-mobile {
+        display: none;
+    }
+}
